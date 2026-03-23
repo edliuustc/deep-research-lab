@@ -150,7 +150,7 @@
         <div class="at">#002 中国石油(601857)：地缘风暴下的三桶油传奇</div>
         <div class="am">2026-03-23</div>
       </div>
-      <div class="ai" data-url="https://edliuustc.github.io/deep-research-lab/articles/001-yuanjie.html">
+      <div class="ai" data-url="https://edliuustc.github.io/deep-research-lab/articles/001-yuanjie-tech.html">
         <div class="at">#001 源杰科技(688498)：从百元到千元</div>
         <div class="am">2026-03-23</div>
       </div>
