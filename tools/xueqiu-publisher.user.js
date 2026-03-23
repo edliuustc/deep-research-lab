@@ -6,6 +6,9 @@
 // @author       深研Lab
 // @match        https://xueqiu.com/*
 // @match        https://mp.xueqiu.com/*
+// @match        *://xueqiu.com/*
+// @match        *://mp.xueqiu.com/*
+// @run-at       document-idle
 // @grant        GM_xmlhttpRequest
 // @grant        GM_registerMenuCommand
 // @grant        GM_addStyle
@@ -373,11 +376,38 @@
     });
 
     // ============ 初始化 ============
-    // 页面加载完成后添加FAB
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', createFAB);
-    } else {
+    // 延迟加载，等 SPA 页面完全渲染
+    function init() {
+        console.log('[深研Lab] 脚本已加载，当前URL:', location.href);
         createFAB();
     }
+
+    // 多重保障：立即尝试 + 延迟重试
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(init, 1000);
+        });
+    } else {
+        setTimeout(init, 500);
+    }
+
+    // 再加一层保障：如果是 SPA 路由切换，MutationObserver 重新检查
+    let fabCreated = false;
+    const observer = new MutationObserver(function() {
+        if (!fabCreated && !document.getElementById('shenyan-fab')) {
+            console.log('[深研Lab] MutationObserver 触发，创建FAB');
+            createFAB();
+            fabCreated = true;
+        }
+    });
+    observer.observe(document.documentElement, { childList: true, subtree: true });
+
+    // 最终保底：3秒后强制创建
+    setTimeout(function() {
+        if (!document.getElementById('shenyan-fab')) {
+            console.log('[深研Lab] 3秒保底触发');
+            createFAB();
+        }
+    }, 3000);
 
 })();
