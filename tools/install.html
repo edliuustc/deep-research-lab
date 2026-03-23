@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"><title>安装深研Lab雪球发布器</title></head>
+<body style="font-family:sans-serif;max-width:600px;margin:50px auto;padding:20px;">
+<h1>📊 深研Lab 雪球发布器</h1>
+<p>请按以下步骤安装：</p>
+<ol>
+<li>点击浏览器右上角 <strong>Tampermonkey</strong> 图标</li>
+<li>选择 <strong>"创建新脚本"</strong></li>
+<li>删掉编辑器中的默认内容</li>
+<li>点击下方按钮复制脚本代码</li>
+<li>粘贴到 Tampermonkey 编辑器中</li>
+<li>按 <strong>Ctrl+S</strong> 保存</li>
+</ol>
+<button id="copyBtn" style="background:#b71c1c;color:white;border:none;padding:14px 28px;border-radius:8px;font-size:16px;cursor:pointer;font-weight:bold;">📋 复制脚本代码到剪贴板</button>
+<p id="status" style="color:#1b5e20;font-weight:bold;display:none;">✅ 已复制！请粘贴到 Tampermonkey 编辑器中</p>
+<script>
+document.getElementById('copyBtn').addEventListener('click', function(){
+  fetch('xueqiu-publisher.user.js').then(r=>r.text()).then(code=>{
+    navigator.clipboard.writeText(code).then(()=>{
+      document.getElementById('status').style.display='block';
+    });
+  });
+});
+</script>
+</body>
+</html>
