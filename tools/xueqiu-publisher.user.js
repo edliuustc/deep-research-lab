@@ -85,7 +85,7 @@
         var titleEls = document.querySelectorAll('[class*="title"][contenteditable], [data-placeholder*="标题"]');
         for (var j = 0; j < titleEls.length; j++) {
             titleEls[j].textContent = title;
-            titleEls[j].dispatchEvent(new Event('input', {bubbles: true}));
+            try { titleEls[j].dispatchEvent(new Event('input', {bubbles: true})); } catch(e) {}
             console.log('[深研Lab] 标题已填写(contenteditable):', title);
             return true;
         }
@@ -106,19 +106,30 @@
         return false;
     }
 
-    // 设置 input 值，兼容 React/Vue 框架
+    // 设置 input 值 - 极简版，避免沙箱问题
     function setNativeValue(el, value) {
-        // 直接设值
-        el.value = value;
-        // 触发事件让框架感知
-        el.dispatchEvent(new Event('input', {bubbles: true}));
-        el.dispatchEvent(new Event('change', {bubbles: true}));
-        el.dispatchEvent(new Event('blur', {bubbles: true}));
-        // 备用：模拟键盘输入
-        if (el.value !== value) {
-            el.focus();
-            el.select();
-            document.execCommand('insertText', false, value);
+        try { el.focus(); } catch(e) {}
+        try { el.value = value; } catch(e) {}
+        try { el.textContent = value; } catch(e) {}
+        try { el.innerText = value; } catch(e) {}
+        try {
+            el.dispatchEvent(new Event('input', {bubbles: true}));
+        } catch(e) {
+            // 沙箱环境下 Event 可能失败，用 createEvent 替代
+            try {
+                var evt = document.createEvent('HTMLEvents');
+                evt.initEvent('input', true, true);
+                el.dispatchEvent(evt);
+            } catch(e2) {}
+        }
+        try {
+            el.dispatchEvent(new Event('change', {bubbles: true}));
+        } catch(e) {
+            try {
+                var evt = document.createEvent('HTMLEvents');
+                evt.initEvent('change', true, true);
+                el.dispatchEvent(evt);
+            } catch(e2) {}
         }
     }
 
@@ -176,8 +187,8 @@
             fallbackInject(editor, html);
         }
 
-        // 填标题
-        fillTitle(title);
+        // 填标题（包在 try-catch 里防止沙箱错误阻塞主流程）
+        try { fillTitle(title); } catch(e) { console.log('[深研Lab] 标题填写出错:', e.message); }
 
         return {ok: true, msg: '📋 文章已复制到剪贴板！请在编辑器中按 <b>Ctrl+V</b> 粘贴'};
     }
