@@ -180,15 +180,8 @@
       <div class="st si">输入文章URL或选择预置文章</div>
       <input class="ui" id="sy-url" placeholder="GitHub Pages 文章URL..." value="">
       <button class="btn bp" id="sy-go">📥 获取并注入文章</button>
-      <div style="margin:16px 0 8px;font-weight:600;color:#666;font-size:13px">── 预置文章 ──</div>
-      <div class="ai" data-url="https://edliuustc.github.io/deep-research-lab/articles/002-petrochina.html">
-        <div class="at">#002 中国石油(601857)：地缘风暴下的三桶油传奇</div>
-        <div class="am">2026-03-23</div>
-      </div>
-      <div class="ai" data-url="https://edliuustc.github.io/deep-research-lab/articles/001-yuanjie-tech.html">
-        <div class="at">#001 源杰科技(688498)：从百元到千元</div>
-        <div class="am">2026-03-23</div>
-      </div>
+      <div style="margin:16px 0 8px;font-weight:600;color:#666;font-size:13px">── 文章列表（自动加载）──</div>
+      <div id="sy-articles"><div class="st si">正在加载...</div></div>
       <hr style="margin:16px 0;border:none;border-top:1px solid #eee">
       <button class="btn bs" id="sy-paste">📋 从剪贴板粘贴HTML</button>
       <button class="btn bs" id="sy-detect">🔍 检测编辑器</button>
@@ -221,6 +214,49 @@
       fetchAndInject(url);
     };
   });
+
+  // 自动从 GitHub API 加载 *-xueqiu.html 文章列表
+  function loadArticleList(){
+    var container = document.getElementById('sy-articles');
+    fetch('https://api.github.com/repos/edliuustc/deep-research-lab/contents/articles')
+      .then(function(r){ return r.json(); })
+      .then(function(files){
+        // 筛选 -xueqiu.html 文件，按名称倒序（新文章在前）
+        var xueqiu = files.filter(function(f){ return f.name.endsWith('-xueqiu.html'); });
+        xueqiu.sort(function(a,b){ return b.name.localeCompare(a.name); });
+
+        if(!xueqiu.length){
+          container.innerHTML = '<div class="st se">未找到雪球版文章（*-xueqiu.html）</div>';
+          return;
+        }
+
+        container.innerHTML = '';
+        xueqiu.forEach(function(f){
+          // 从文件名提取编号和关键词: 002-petrochina-xueqiu.html -> #002 petrochina
+          var match = f.name.match(/^(\d+)-(.+)-xueqiu\.html$/);
+          var num = match ? '#' + match[1] : '';
+          var slug = match ? match[2].replace(/-/g, ' ') : f.name;
+          var url = 'https://edliuustc.github.io/deep-research-lab/articles/' + f.name;
+
+          var div = document.createElement('div');
+          div.className = 'ai';
+          div.dataset.url = url;
+          div.innerHTML = '<div class="at">' + num + ' ' + slug + '</div><div class="am">点击加载 →</div>';
+          div.onclick = function(){
+            document.getElementById('sy-url').value = url;
+            // 先 fetch 获取实际标题
+            div.querySelector('.am').textContent = '加载中...';
+            fetchAndInject(url);
+          };
+          container.appendChild(div);
+        });
+        console.log('[深研Lab] 加载了', xueqiu.length, '篇雪球版文章');
+      })
+      .catch(function(err){
+        container.innerHTML = '<div class="st se">加载失败: ' + err.message + '</div>';
+      });
+  }
+  loadArticleList();
 
   document.getElementById('sy-paste').onclick = async function(){
     try{
