@@ -268,7 +268,7 @@
                     <div class="sy-meta">2026-03-23</div>
                 </div>
 
-                <div class="sy-article-item" data-url="https://edliuustc.github.io/deep-research-lab/articles/001-yuanjie.html">
+                <div class="sy-article-item" data-url="https://edliuustc.github.io/deep-research-lab/articles/001-yuanjie-tech.html">
                     <div class="sy-title">#001 源杰科技(688498)：从百元到千元</div>
                     <div class="sy-meta">2026-03-23</div>
                 </div>
