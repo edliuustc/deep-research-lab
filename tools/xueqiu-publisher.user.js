@@ -106,18 +106,20 @@
         return false;
     }
 
-    // 使用原生 setter 设置 input 值，确保 React/Vue 框架感知到变化
+    // 设置 input 值，兼容 React/Vue 框架
     function setNativeValue(el, value) {
-        var descriptor = Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value')
-            || Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype, 'value');
-        if (descriptor && descriptor.set) {
-            descriptor.set.call(el, value);
-        } else {
-            el.value = value;
-        }
+        // 直接设值
+        el.value = value;
+        // 触发事件让框架感知
         el.dispatchEvent(new Event('input', {bubbles: true}));
         el.dispatchEvent(new Event('change', {bubbles: true}));
         el.dispatchEvent(new Event('blur', {bubbles: true}));
+        // 备用：模拟键盘输入
+        if (el.value !== value) {
+            el.focus();
+            el.select();
+            document.execCommand('insertText', false, value);
+        }
     }
 
     // 注入文章到编辑器
