@@ -78,9 +78,8 @@
     });
 
     if(!editors.length){
-      // 最后尝试：找所有 contenteditable
       editors = Array.from(document.querySelectorAll('[contenteditable]')).filter(function(e){
-        return e.offsetHeight > 100; // 排除小元素
+        return e.offsetHeight > 100;
       });
     }
 
@@ -89,29 +88,65 @@
     var editor = editors[0];
     console.log('[深研Lab] 找到编辑器:', editor.tagName, editor.className);
 
-    editor.innerHTML = html;
-    editor.dispatchEvent(new Event('input',{bubbles:true}));
-    editor.dispatchEvent(new Event('change',{bubbles:true}));
-    // Quill specific
-    try{ editor.dispatchEvent(new Event('blur',{bubbles:true})); }catch(e){}
+    // 方法1：通过 clipboardData 模拟粘贴（最兼容富文本编辑器）
+    try {
+      editor.focus();
+      // 选中编辑器全部内容
+      var sel = window.getSelection();
+      var range = document.createRange();
+      range.selectNodeContents(editor);
+      sel.removeAllRanges();
+      sel.addRange(range);
 
-    // 填标题
-    if(title){
-      var ti = document.querySelector('input[placeholder*="标题"]')
-        || document.querySelector('textarea[placeholder*="标题"]')
-        || document.querySelector('input[name="title"]')
-        || document.querySelector('.article-title input');
-      if(ti){
-        // 使用 native input setter 确保 React/Vue 感知到变化
-        var nativeSet = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype,'value').set;
-        nativeSet.call(ti, title);
-        ti.dispatchEvent(new Event('input',{bubbles:true}));
-        ti.dispatchEvent(new Event('change',{bubbles:true}));
-        console.log('[深研Lab] 标题已填写:', title);
+      // 创建 paste 事件
+      var pasteEvent = new ClipboardEvent('paste', {
+        bubbles: true,
+        cancelable: true,
+        clipboardData: new DataTransfer()
+      });
+      pasteEvent.clipboardData.setData('text/html', html);
+      pasteEvent.clipboardData.setData('text/plain', editor.textContent || '');
+
+      var handled = !editor.dispatchEvent(pasteEvent);
+      if (handled) {
+        console.log('[深研Lab] 方法1成功：ClipboardEvent paste');
+        return {ok:true, msg:'✅ 文章已通过模拟粘贴注入！请检查格式后发布。'};
       }
+    } catch(e) {
+      console.log('[深研Lab] 方法1失败:', e.message);
     }
 
-    return {ok:true,msg:'✅ 文章已注入！请检查格式后发布。'};
+    // 方法2：使用 execCommand insertHTML
+    try {
+      editor.focus();
+      var sel = window.getSelection();
+      var range = document.createRange();
+      range.selectNodeContents(editor);
+      sel.removeAllRanges();
+      sel.addRange(range);
+      var ok = document.execCommand('insertHTML', false, html);
+      if (ok) {
+        console.log('[深研Lab] 方法2成功：execCommand insertHTML');
+        return {ok:true, msg:'✅ 文章已通过insertHTML注入！请检查格式后发布。'};
+      }
+    } catch(e) {
+      console.log('[深研Lab] 方法2失败:', e.message);
+    }
+
+    // 方法3：写入剪贴板，提示用户手动粘贴
+    try {
+      var blob = new Blob([html], {type: 'text/html'});
+      var item = new ClipboardItem({'text/html': blob, 'text/plain': new Blob([html.replace(/<[^>]+>/g, '')], {type: 'text/plain'})});
+      navigator.clipboard.write([item]).then(function(){
+        showStatus('✅ 已复制到剪贴板！请在编辑器中按 <strong>Ctrl+V</strong> 粘贴', 'o');
+      });
+      console.log('[深研Lab] 方法3：已写入剪贴板，等待用户粘贴');
+      return {ok:true, msg:'📋 已复制到剪贴板！请点击编辑器内部，然后按 <strong>Ctrl+V</strong> 粘贴。'};
+    } catch(e) {
+      console.log('[深研Lab] 方法3失败:', e.message);
+    }
+
+    return {ok:false, msg:'所有注入方法都失败了，请手动复制粘贴。'};
   }
 
   function showStatus(msg, type){
