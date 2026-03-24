@@ -267,8 +267,9 @@
                     container.innerHTML = '';
                     xueqiu.forEach(function(f) {
                         var match = f.name.match(/^(\d+)-(.+)-xueqiu\.html$/);
-                        var num = match ? '#' + match[1] : '';
-                        var slug = match ? match[2].replace(/-/g, ' ') : f.name;
+                        var morningMatch = f.name.match(/^morning-(\d{4}-\d{2}-\d{2})-xueqiu\.html$/);
+                        var num = match ? '#' + match[1] : morningMatch ? '☀️' : '';
+                        var slug = match ? match[2].replace(/-/g, ' ') : morningMatch ? '早报 ' + morningMatch[1] : f.name;
                         var url = 'https://edliuustc.github.io/deep-research-lab/articles/' + f.name;
 
                         var div = document.createElement('div');
