@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>碳酸锂累涨70%，锂矿板块午后集体爆发：新一轮锂周期真的来了？ | 深研Lab</title>
+    <meta name="description" content="碳酸锂期货自2025年11月以来累涨逾70%，2026年全年锂盐缺口约6万吨。天齐锂业、赣锋锂业双双扭亏，大中矿业涨停。深度拆解供需格局、价格区间与操作策略。">
+    <meta name="keywords" content="碳酸锂,锂矿,天齐锂业,赣锋锂业,大中矿业,锂电池,储能,碳酸锂期货,A股,深研Lab">
+    <meta property="og:title" content="碳酸锂累涨70%，锂矿板块午后集体爆发：新一轮锂周期真的来了？">
+    <meta property="og:description" content="供需缺口6万吨、龙头扭亏、储能需求爆发——碳酸锂三重逻辑深度拆解，附龙头对比与操作策略。">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://edliuustc.github.io/deep-research-lab/articles/003-lithium-carbonate.html">
+    <style>
+        :root {
+            --primary: #b71c1c;
+            --dark-bg: #1a1a2e;
+            --bull: #1b5e20;
+            --bear: #b71c1c;
+            --warn: #f9a825;
+            --info: #1a237e;
+            --card-bg: #f8f9fa;
+            --text: #222;
+            --text-secondary: #666;
+            --text-muted: #999;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+            color: var(--text);
+            line-height: 1.8;
+            background: #fff;
+            max-width: 780px;
+            margin: 0 auto;
+            padding: 20px 16px;
+        }
+        .article-header {
+            background: var(--dark-bg);
+            color: #fff;
+            padding: 32px 24px;
+            border-radius: 12px;
+            margin-bottom: 28px;
+        }
+        .article-header .tag {
+            display: inline-block;
+            background: var(--primary);
+            color: #fff;
+            padding: 2px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+        .article-header h1 {
+            font-size: 24px;
+            line-height: 1.4;
+            margin-bottom: 12px;
+        }
+        .article-header .meta {
+            color: #aaa;
+            font-size: 13px;
+        }
+        .quick-panel {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+        .quick-panel .item {
+            background: var(--card-bg);
+            padding: 14px 12px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .quick-panel .item .label { font-size: 12px; color: var(--text-secondary); }
+        .quick-panel .item .value { font-size: 18px; font-weight: 700; margin-top: 4px; }
+        .up { color: var(--bull); }
+        .down { color: var(--bear); }
+        h2 {
+            font-size: 20px;
+            color: var(--dark-bg);
+            margin: 32px 0 16px;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary);
+        }
+        h3 { font-size: 16px; margin: 20px 0 10px; }
+        p { margin-bottom: 14px; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            font-size: 14px;
+        }
+        th {
+            background: var(--dark-bg);
+            color: #fff;
+            padding: 10px 8px;
+            text-align: left;
+            font-weight: 600;
+        }
+        td {
+            padding: 10px 8px;
+            border-bottom: 1px solid #eee;
+        }
+        tr:nth-child(even) { background: #fafafa; }
+        .alert {
+            padding: 16px 18px;
+            border-radius: 8px;
+            margin: 18px 0;
+            font-size: 14px;
+        }
+        .alert-bull { background: #e8f5e9; border-left: 4px solid var(--bull); }
+        .alert-bear { background: #fce4ec; border-left: 4px solid var(--bear); }
+        .alert-warn { background: #fff8e1; border-left: 4px solid var(--warn); }
+        .alert-info { background: #e8eaf6; border-left: 4px solid var(--info); }
+        .pros-cons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin: 18px 0;
+        }
+        .pros-cons .col {
+            padding: 16px;
+            border-radius: 8px;
+        }
+        .pros-cons .pros { background: #e8f5e9; }
+        .pros-cons .cons { background: #fce4ec; }
+        .pros-cons h4 { font-size: 15px; margin-bottom: 10px; }
+        .pros-cons ul { padding-left: 18px; font-size: 14px; }
+        .pros-cons li { margin-bottom: 6px; }
+        .score-section { margin: 24px 0; }
+        .score-bar-bg {
+            width: 100%;
+            height: 24px;
+            background: #e0e0e0;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .score-bar-fill {
+            height: 100%;
+            border-radius: 12px;
+            background: linear-gradient(90deg, var(--bear), var(--warn), var(--bull));
+        }
+        .article-footer {
+            margin-top: 36px;
+            padding: 24px;
+            background: var(--card-bg);
+            border-radius: 8px;
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+        .disclaimer {
+            margin-top: 20px;
+            padding: 14px;
+            background: #fff3e0;
+            border-radius: 8px;
+            font-size: 12px;
+            color: #999;
+        }
+        strong { font-weight: 600; }
+        @media (max-width: 600px) {
+            .quick-panel { grid-template-columns: repeat(2, 1fr); }
+            .pros-cons { grid-template-columns: 1fr; }
+            .article-header h1 { font-size: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="article-header">
+    <span class="tag">📊 板块深度</span>
+    <h1>碳酸锂累涨70%，锂矿板块午后集体爆发：新一轮锂周期真的来了？</h1>
+    <div class="meta">深研Lab · 2026年3月24日 · 板块周二特刊</div>
+</div>
+
+<div class="quick-panel">
+    <div class="item">
+        <div class="label">沪指 3/24</div>
+        <div class="value up">3862 +1.28%</div>
+    </div>
+    <div class="item">
+        <div class="label">碳酸锂期货（累涨）</div>
+        <div class="value up">70%+</div>
+    </div>
+    <div class="item">
+        <div class="label">电池级碳酸锂</div>
+        <div class="value up">¥148,632</div>
+    </div>
+    <div class="item">
+        <div class="label">天齐锂业</div>
+        <div class="value up">+4.76%</div>
+    </div>
+</div>
+
+<h2>一、5000股暴跌次日，锂矿凭什么领涨全场？</h2>
+
+<p>昨天（3月23日）刚经历了一场"血洗"——沪指暴跌3.63%，5100多只股票下跌，133只跌停，全市场恐慌出逃。今天一早，大多数人还在讨论"底在哪里"。</p>
+
+<p>结果呢？沪指高开后一路走强，收报3862点，涨1.28%，近5000只个股上涨，创业板更是从盘中一度跌2.5%直接翻红收涨——一个教科书级的V形反转。</p>
+
+<p>但今天真正的主角，不是大盘，而是<strong>锂矿板块</strong>。午后锂矿概念集体爆发，大中矿业直封涨停，天齐锂业涨4.76%领跑持仓标的，赣锋锂业涨2.28%。这不是短线炒作能解释的——看看碳酸锂期货的走势你就明白了：<strong>自2025年11月以来，碳酸锂期货价格已经累计涨了超过70%，光今年就涨了19%。</strong></p>
+
+<p>半年涨70%，这不是反弹，是一轮新的周期。</p>
+
+<h2>二、从6万到15万：碳酸锂到底发生了什么？</h2>
+
+<p>先说一组数据让你感受一下变化的剧烈程度：</p>
+
+<table>
+    <tr><th>指标</th><th>2025年6月（谷底）</th><th>2026年3月24日</th><th>变化</th></tr>
+    <tr><td>工业级碳酸锂</td><td>~5.8万元/吨</td><td>14.0万元/吨</td><td class="up">+141%</td></tr>
+    <tr><td>电池级碳酸锂</td><td>~6.0万元/吨</td><td>14.86万元/吨（+1.18%）</td><td class="up">+148%</td></tr>
+    <tr><td>碳酸锂期货主力</td><td>~6万元/吨</td><td>累计涨70%+</td><td class="up">半年翻倍</td></tr>
+    <tr><td>国内库存</td><td>~12万吨</td><td>&lt;9.9万吨</td><td class="up">持续去化</td></tr>
+    <tr><td>天齐锂业业绩</td><td>2024年巨亏</td><td>2025年预盈3.69-5.53亿</td><td class="up">扭亏为盈</td></tr>
+    <tr><td>赣锋锂业业绩</td><td>2024年亏20.74亿</td><td>2025年预盈11-16.5亿</td><td class="up">扭亏为盈</td></tr>
+</table>
+
+<p>2025年上半年的碳酸锂市场，用"人间炼狱"形容毫不为过——价格跌破6万，几乎所有锂矿企业都在亏损。龙头天齐锂业巨亏，赣锋锂业亏了20个亿。整个行业都觉得"锂过剩了，永远回不去了"。</p>
+
+<p>然后事情从2025年下半年开始反转。核心原因就三个字：<strong>短缺了</strong>。</p>
+
+<h2>三、供需缺口6万吨——这轮短缺是怎么形成的？</h2>
+
+<p>市场上关于碳酸锂供需的说法五花八门，今天我直接摆硬数据。根据机构深度调研，<strong>2026年碳酸锂交易界面存在约6万吨的供需缺口</strong>。</p>
+
+<p>这个数字怎么来的？</p>
+
+<div class="alert alert-info">
+    <strong>💡 锂供需的"水分"逻辑：</strong><br>
+    简单看表面数据，2026年锂资源供应约207万吨，需求约195万吨，好像有12万吨过剩？但实际完全反过来。因为：①需求端从消费传导到正极端存在逐级放大效应，正极材料对碳酸锂的实际需求约204万吨；②供给端从矿石开采到变成碳酸锂平均需要3-4个月周转，实际有效供应仅约198万吨。一加一减，<strong>真实缺口约6万吨</strong>。
+</div>
+
+<p>更关键的是，这6万吨缺口还没算进去几个正在恶化的变量：</p>
+
+<h3>变量一：津巴布韦出口禁令</h3>
+<p>津巴布韦是非洲最重要的锂矿出口国。2025年已明确<strong>2027年1月1日起禁止锂精矿出口</strong>，只允许出口加工后的碳酸锂或硫酸锂。短期内，当地加强了出口管控，堵住了原矿混同精矿出口的漏洞。这一禁令预计将减少约2万吨碳酸锂的供给。目前仅华友的5万吨硫酸锂工厂已建成调试，其他企业的产能多数还在纸面上——赶不上2027年1月的大限。</p>
+
+<h3>变量二：江西锂云母矿证风波</h3>
+<p>江西碱下窝——国内重要的锂云母项目——2025年8月因新矿业法审批变更被叫停。原本预计2026年3月走完环评手续，但截至目前第二次环评公示仍未发布，坊间传言卡壳原因是尾矿库不达标。如果需要重做环评，至少再等两三个月，对应约3万吨产量缺口。2026年8月中国新环保法典正式实施，后续永新、九岭等矿山也可能出现类似扰动。</p>
+
+<h3>变量三：非洲供给的"纸面繁荣"</h3>
+<p>市场普遍有个误区：锂价涨了，非洲矿山供给自然就上来了。实际恰恰相反——<strong>锂价越涨，资源民族主义越严重</strong>。尼日利亚最大的中资项目被查封，刚果金的矿权存在诉讼扰动，马里北部2/3国土被极端武装控制。把所有矿山产能指引简单加总作为供给预测，历史上从来没有兑现过。</p>
+
+<div class="alert alert-warn">
+    <strong>⚠️ 核心判断：</strong>2026年碳酸锂市场处于真实短缺状态，而非紧平衡。周度库存仅约10万吨，全产业链库存120-160万吨，冶炼厂库存已创近三年新低。即便澳洲三家矿山的复产增量全部纳入测算，全年6.3万吨缺口依然存在。
+</div>
+
+<h2>四、这轮周期跟之前有什么不同？</h2>
+
+<p>碳酸锂历史上经历过两轮大涨：2015年从3万涨到18万，2020-2022年从4万涨到60万。那两轮都是电动车需求驱动。</p>
+
+<p><strong>这一轮的核心驱动力变了——是储能。</strong></p>
+
+<p>这意味着什么？意味着价格的天花板和地板都不一样了。电动车是大宗消费品，消费者对涨价容忍度高（上一轮碳酸锂涨到60万也没挡住电车卖），但储能是投资品，项目方要算IRR（投资回报率），碳酸锂价格每涨1万，储能项目的收益率就下降一截。</p>
+
+<p>根据测算，碳酸锂价格可以划分为三个关键区间：</p>
+
+<table>
+    <tr><th>价格区间</th><th>市场含义</th><th>投资逻辑</th></tr>
+    <tr><td class="up"><strong>10-15万元/吨</strong></td><td>储能IRR舒适区<br>需求确定性强</td><td>合理买入区间<br>锂矿股盈利快速修复</td></tr>
+    <tr><td style="color:#f9a825;"><strong>15-20万元/吨</strong></td><td>观察区<br>大部分储能项目仍可行</td><td>持股待涨<br>关注边际需求变化</td></tr>
+    <tr><td class="down"><strong>20万元以上</strong></td><td>取决于政策力度<br>纯算账偏吃力</td><td>高位需谨慎<br>政策变量是关键</td></tr>
+</table>
+
+<p>当前电池级碳酸锂价格约14.86万元/吨，<strong>恰好处于"舒适区"的上沿</strong>。换句话说：现在的价格水平下，储能项目还能赚钱，所以需求不会断；但如果继续涨到20万以上，就需要政策兜底了——好消息是，2026年1月容量补偿政策已经落地，国家五年规划要把风光电占比从18%提到30%，叠加中东冲突下摆脱石油依赖的战略需求，政策端对储能的支撑力度非常强。</p>
+
+<h2>五、需求端：储能+电动车+地缘，三重引擎</h2>
+
+<p><strong>第一引擎：储能需求爆发。</strong>这是本轮最核心的增量。2026年1-2月，国内储能电池销量增速翻倍，成为需求增长的C位。容量电价政策出台后，储能项目的经济性得到保障，即使原材料涨价也能对冲。全球范围看，中东局势推升欧洲户储需求，中国风光电与储能配比持续提升。</p>
+
+<p><strong>第二引擎：电动车需求即将代偿性爆发。</strong>2025年底到2026年初电动车销量偏弱，不是需求没了，是被三件事压着：一是以旧换新政策各省细节春节后才落地，625亿补贴资金2026年3月才批准；二是7月1日新电池安全标准实施，部分消费者延后购车等更安全的车型；三是车企要在5-6月提前备货应对需求释放。这些因素正在同时解除，下半年电动车销售大概率出现集中爆发。</p>
+
+<p><strong>第三引擎：中东冲突推高油价，加速能源替代。</strong>布伦特原油即使在特朗普"暂停5天打击"后暴跌10%，收盘仍在99.94美元。只要油价维持高位，全球加速电动化和储能装机的逻辑就不会变。更直接的是：电动重卡这个细分赛道在高油价下渗透率飙升——2024年电动重卡占动力电池用量的10%，2025年加专用车已到19%，2026年油价继续推升这一比例。</p>
+
+<div class="alert alert-bull">
+    <strong>✅ 欧洲的潜在爆发：</strong>机构预期2026年欧洲电动车增速最高可达50%。叠加碳关税、排放法规趋严，欧洲储能和电动车对锂的需求将构成有效增量。即使国内汽车销售不及预期，海外和储能也足以支撑锂的供需缺口。
+</div>
+
+<h2>六、龙头企业全景速览</h2>
+
+<table>
+    <tr><th>公司</th><th>核心逻辑</th><th>2025年业绩</th><th>3/24表现</th></tr>
+    <tr><td><strong>天齐锂业</strong></td><td>锂矿资源全球化布局，SQM/Greenbushes权益</td><td>扭亏：3.69-5.53亿</td><td class="up">+4.76%</td></tr>
+    <tr><td><strong>赣锋锂业</strong></td><td>锂全产业链，上游矿+中游冶炼+下游电池</td><td>扭亏：11-16.5亿</td><td class="up">+2.28%</td></tr>
+    <tr><td><strong>天赐材料</strong></td><td>电解液龙头+碳酸锂价格传导受益</td><td>+127%~+231%</td><td>随板块走强</td></tr>
+    <tr><td><strong>大中矿业</strong></td><td>川矿概念+锂矿副产矿贡献</td><td>—</td><td class="up">涨停</td></tr>
+    <tr><td><strong>永兴材料</strong></td><td>锂云母龙头，低成本优势</td><td>随锂价修复</td><td>涨超3%</td></tr>
+    <tr><td><strong>盛新锂能</strong></td><td>碳酸锂+氢氧化锂双线布局</td><td>随锂价修复</td><td>逆市收红</td></tr>
+</table>
+
+<p>重点说说天齐和赣锋这两家龙头的差异：</p>
+
+<p><strong>天齐锂业</strong>的核心资产是泰利森Greenbushes矿山（全球最大在产锂辉石矿）的权益和智利SQM的参股。天齐is essentially a pure play on lithium price——锂价涨，天齐利润弹性最大。但2024年巨额亏损的阴影还在，SQM投资的减值也是潜在风险。今天涨4.76%是全天最强锂矿标的之一。</p>
+
+<p><strong>赣锋锂业</strong>更像锂产业链的"沃尔玛"——上游有锂矿，中游有冶炼，下游还做固态电池。产业链布局更均衡，盈利稳定性更好，但弹性不如天齐。2025年预盈11-16.5亿，修复速度更快。</p>
+
+<h2>七、利多与利空</h2>
+
+<div class="pros-cons">
+    <div class="col pros">
+        <h4>✅ 利多因素</h4>
+        <ul>
+            <li><strong>6万吨真实缺口：</strong>2026年碳酸锂供需短缺格局已确认，非紧平衡</li>
+            <li><strong>库存历史低位：</strong>冶炼厂库存创三年新低，去库通道持续</li>
+            <li><strong>龙头扭亏为盈：</strong>天齐、赣锋、天赐三大龙头业绩集体反转</li>
+            <li><strong>储能需求爆发：</strong>容量电价政策落地，1-2月储能电池销量增速翻倍</li>
+            <li><strong>供给端多处扰动：</strong>津巴布韦出口禁令+江西矿证风波+非洲政治风险</li>
+            <li><strong>高油价助推替代：</strong>油价100美元，全球加速电动化和储能装机</li>
+            <li><strong>碳酸锂期货累涨70%+：</strong>趋势确认，非脉冲式炒作</li>
+        </ul>
+    </div>
+    <div class="col cons">
+        <h4>❌ 利空因素</h4>
+        <ul>
+            <li><strong>价格接近观察区上沿：</strong>14.86万距离15万仅一步之遥，继续上涨需边际需求确认</li>
+            <li><strong>澳洲矿山复产预期：</strong>皮尔巴拉Q4复产、MRL上调指引，市场可能反复博弈供给预期</li>
+            <li><strong>中东局势反复：</strong>如果停火油价回落，储能紧迫性降级</li>
+            <li><strong>电动车销量短期偏弱：</strong>代偿性爆发尚未兑现，Q1数据可能低于预期</li>
+            <li><strong>碳酸锂20万以上有硬约束：</strong>储能项目IRR压力大，价格涨太快反而抑制需求</li>
+            <li><strong>宏观风险：</strong>美联储鹰派，全球流动性收紧可能压制风险偏好</li>
+        </ul>
+    </div>
+</div>
+
+<h2>八、操作参考</h2>
+
+<p>直接亮牌：<strong>锂矿板块当前处于"周期确认中"的阶段</strong>，跟2020年下半年锂价刚起来的时候很像——看多的人在加仓，看空的人还在等回调。基于供需格局，我倾向于偏多，但要分策略操作。</p>
+
+<h3>策略一：中线配置（持股3-6个月）</h3>
+<p>如果你相信6万吨缺口的逻辑和储能驱动的长周期，现在是建仓窗口。碳酸锂14-15万在"舒适区"，意味着需求不会因价格太高而崩。</p>
+<ul>
+    <li><strong>天齐锂业：</strong>锂价弹性最大的标的。关注回调到5日均线附近分批建仓。止损设前低-5%。目标看碳酸锂冲上18万的盈利弹性。</li>
+    <li><strong>赣锋锂业：</strong>更稳健的选择，产业链布局均衡。适合风险偏好中等的投资者。</li>
+    <li><strong>锂电池ETF：</strong>分散个股风险，跟踪板块趋势。适合不愿选股的投资者。</li>
+</ul>
+
+<h3>策略二：短线参与（持股3-5天）</h3>
+<p>今天大中矿业涨停，天齐涨4.76%，板块情绪已经点燃。短线可以关注板块内尚未充分表现的标的（永兴材料、盛新锂能），但追涨涨停板的风险极大，大中矿业明天大概率高开分歧。</p>
+
+<h3>策略三：观望等回调</h3>
+<p>如果你担心大盘的V形反转只是"昙花一现"，等碳酸锂回调到13-14万区间再入场也不迟。供需缺口不会一夜之间消失，机会是月度级别的。</p>
+
+<div class="alert alert-bear">
+    <strong>🛑 最坏情景——碳酸锂跌回10万以下：</strong><br>
+    如果中东大规模停火+全球经济衰退+澳洲矿山超预期复产同时发生，碳酸锂可能回到10-12万区间。但即便如此，储能需求的结构性增长不会逆转，低价反而会触发新一波的建仓机会。这种情景发生的概率很低——仅凭储能单一板块就已经支撑住了缺口格局。
+</div>
+
+<h2>九、综合评估与明日预判</h2>
+
+<div class="score-section">
+    <p><strong>锂矿板块综合评分：7.5 / 10</strong></p>
+    <div class="score-bar-bg">
+        <div class="score-bar-fill" style="width: 75%;"></div>
+    </div>
+    <p style="font-size: 13px; color: #666; margin-top: 8px;">供需短缺格局确认+龙头业绩反转+政策支撑=中周期性看好。短期波动跟随大盘，中期走独立行情。</p>
+</div>
+
+<p>7.5分的核心原因：<strong>碳酸锂是目前A股为数不多的"数据驱动+逻辑清晰+周期确认"的板块</strong>。不靠概念炒作，不靠政策预期，而是实打实的供需缺口、库存去化、龙头扭亏——三条硬逻辑同时成立。扣分在于宏观环境太差（美联储鹰派+地缘不确定性），短线波动可能很大。</p>
+
+<h3>明日（3月25日）预判</h3>
+
+<p>今天的V形反转虽然强势，但本质是对昨天暴跌的技术修复+特朗普"暂停打击伊朗"消息的情绪驱动。<strong>周三的走势取决于两件事：</strong></p>
+
+<ul>
+    <li><strong>量能验证：</strong>今天反弹如果缩量，说明跟风资金不足，周三可能缩量回调。如果放量站稳3850以上，则有望继续修复。</li>
+    <li><strong>中东变量：</strong>特朗普的"5天暂停期"从3月23日算起，<strong>3月28日（周五）是最后期限</strong>。如果本周没有实质性和平进展，油价可能再次暴涨，大盘将承压。</li>
+</ul>
+
+<p><strong>对锂矿板块来说：</strong>即使大盘调整，锂矿的独立行情有望延续——碳酸锂的供需逻辑不依赖大盘涨跌，而是周期自驱的。今天午后的板块爆发不是结束，而是市场开始定价"锂周期回来了"的第一步。</p>
+
+<div class="alert alert-info">
+    <strong>📅 关键时间节点：</strong><br>
+    · 3月28日（周五）：特朗普对伊朗"最后期限"到期——本周最关键变量<br>
+    · 4月中旬：锂矿龙头一季报披露——关注盈利修复幅度<br>
+    · 7月1日：电池安全新规实施——车企5-6月提前备货，锂需求二次催化<br>
+    · 2026年下半年：电动车代偿性销售+储能持续放量——锂价看25万的逻辑兑现期<br>
+    这些关键节点，我们将在<strong>每日晨报</strong>中第一时间跟踪最新进展。
+</div>
+
+<div class="article-footer">
+    <p><strong>深研Lab</strong> · 用数据说话，不和稀泥</p>
+    <p style="margin-top:8px;">每日盘后深度分析 · 晨间市场速览</p>
+</div>
+
+<div class="disclaimer">
+    <strong>免责声明：</strong>本文仅供投资参考，不构成买卖建议。市场有风险，投资需谨慎。文中所涉个股仅用于分析，不代表推荐。投资者应独立判断并承担投资风险。<br><br>
+    <strong>数据来源：</strong>新华财经、中国证券报、中信建投证券、中航证券、国盛证券、SMM上海有色网、iFind数据终端、Wind资讯。
+</div>
+
+</body>
+</html>
