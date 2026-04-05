@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>深研Lab — 数据驱动的A股分析</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; background: #f5f5f5; }
+        header { background: #1a1a2e; color: #fff; padding: 40px 20px; text-align: center; }
+        header h1 { font-size: 32px; margin-bottom: 10px; }
+        header p { opacity: 0.9; }
+        .container { max-width: 1000px; margin: 30px auto; padding: 0 20px; }
+        .articles { display: grid; gap: 20px; }
+        .article-card { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); transition: transform 0.3s; }
+        .article-card:hover { transform: translateY(-4px); box-shadow: 0 4px 16px rgba(0,0,0,0.15); }
+        .article-cover { width: 100%; height: 200px; object-fit: cover; }
+        .article-info { padding: 20px; }
+        .article-title { font-size: 18px; font-weight: 600; margin-bottom: 8px; color: #1a1a2e; }
+        .article-date { color: #666; font-size: 14px; margin-bottom: 12px; }
+        .article-desc { color: #555; font-size: 13px; line-height: 1.6; margin-bottom: 15px; }
+        .article-link { display: inline-block; padding: 8px 16px; background: #b71c1c; color: #fff; text-decoration: none; border-radius: 4px; font-size: 13px; }
+        .article-link:hover { background: #8b0000; }
+        footer { text-align: center; padding: 20px; color: #666; font-size: 12px; border-top: 1px solid #ddd; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🐱 深研Lab</h1>
+    <p>数据驱动的A股分析平台 | 专业投资者的智能助手</p>
+</header>
+
+<div class="container">
+    <div class="articles">
+        <div class="article-card">
+            <img src="articles/019-cover.png" alt="深研周末复盘" class="article-cover">
+            <div class="article-info">
+                <div class="article-title">深研周末复盘：通信金融齐飙，能源股堪忧</div>
+                <div class="article-date">2026年4月5日 · 周末复盘</div>
+                <div class="article-desc">周四收盘回顾：沪指3880 -1.0%，深成指13353 -0.99%。资金从出口类向防御类转移。通信+90.6亿流入，电力设备-181.9亿流出。下周伊朗周一通牒成关键看点，油价或冲$115。</div>
+                <a href="articles/019.html" class="article-link">阅读全文 →</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p><strong>深研Lab</strong> | 由招财提供的AI驱动分析</p>
+    <p>本站内容仅供参考，不构成投资建议。投资有风险，入市需谨慎。</p>
+</footer>
+
+</body>
+</html>
